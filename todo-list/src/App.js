@@ -4,7 +4,7 @@ import AddItem from './components/AddItem';
 import Footer from './components/Footer';
 import Item from './components/Item';
 
-function App() {
+const App = () => {
   const [tasks, setTask] = useState([])
 
   const addTask = (inputTask) => {
@@ -19,11 +19,11 @@ function App() {
     }
   }
 
-  const removeTask = (id) => {
+  const removeTask = id => {
     setTask([...tasks.filter((task) => task.id !== id)])
   }
 
-  const handleToggle = (id) => {
+  const handleToggle = id => {
     setTask([
       ...tasks.map((task) => task.id === id ?
         { ...task, complete: !task.complete } :
@@ -31,27 +31,27 @@ function App() {
       )])
   }
 
-  const removeAll = (tasks) => {
+  const removeAll = tasks => {
     setTask([
-      ...tasks.filter((task) => task.complete !== true
+      ...tasks.filter(task => task.complete !== true
       )])
   }
 
-  const sortAll = (tasks) => {
+  const sortAll = tasks => {
     setTask([
-      ...tasks.map((task) => task.complete === true || task.complete === false ? { ...task, display: '' } : { ...task, display: '' }
+      ...tasks.map(task => task.complete === true || task.complete === false ? { ...task, display: '' } : { ...task, display: '' }
       )])
   }
 
-  const sortActive = (tasks) => {
+  const sortActive = tasks => {
     setTask([
-      ...tasks.map((task) => task.complete === true ? { ...task, display: 'active' } : { ...task, display: '' }
+      ...tasks.map(task => task.complete === true ? { ...task, display: 'active' } : { ...task, display: '' }
       )])
   }
 
-  const sortComplitede = (tasks) => {
+  const sortComplitede = tasks => {
     setTask([
-      ...tasks.map((task) => task.complete !== true ? { ...task, display: 'active' } : { ...task, display: '' }
+      ...tasks.map(task => task.complete !== true ? { ...task, display: 'active' } : { ...task, display: '' }
       )])
   }
 
@@ -62,7 +62,7 @@ function App() {
       <AddItem
         addTask={addTask}
         tasks={tasks} />
-      {tasks.map((task) => {
+      {tasks.map(task => {
         return (
           <Item
             task={task}

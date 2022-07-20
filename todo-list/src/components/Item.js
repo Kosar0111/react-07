@@ -1,11 +1,11 @@
 import React from 'react'
 import removeSvg from '../img/remove.svg'
 
-function Item({ task, handleToggle, removeTask }) {
+const Item = ({ task, handleToggle, removeTask }) => {
 
     let style = { display: task.display !== 'active' ? 'flex' : 'none' }
     return (
-        <div key={task.id} className='list' style={style}>
+        <div className='list' style={style}>
             <div
                 className={task.complete ? 'check-done' : 'check'}
                 onClick={() => handleToggle(task.id)} >

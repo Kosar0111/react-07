@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Footer({ tasks, sortAll, removeAll, sortActive, sortComplitede }) {
+const Footer = ({ tasks, sortAll, removeAll, sortActive, sortComplitede }) => {
 
   let sort = [...tasks.filter((task) => task.complete !== true)];
 
@@ -12,7 +12,7 @@ function Footer({ tasks, sortAll, removeAll, sortActive, sortComplitede }) {
         <button onClick={() => sortActive(tasks)}>Active</button>
         <button onClick={() => sortComplitede(tasks)}>Completed</button>
       </div>
-      <div onClick={() => removeAll(tasks)} className='revome-done'><button>Clear completed</button></div>
+      <div className='revome-done'><button onClick={() => removeAll(tasks)}>Clear completed</button></div>
     </div>
   )
 }

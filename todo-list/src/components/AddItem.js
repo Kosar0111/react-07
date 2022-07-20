@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import arrow from '../img/arrow.svg'
 
-function AddItem({ addTask, tasks }) {
+const AddItem = ({ addTask, tasks }) => {
     const [inputTask, setInputTask] = useState('')
 
     const handleChange = (event) => {
@@ -15,7 +15,7 @@ function AddItem({ addTask, tasks }) {
     }
 
     const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
+        if (event.keyCode === 13) {
             handleSubmit(event)
         }
     }
