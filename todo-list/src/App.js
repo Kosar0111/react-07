@@ -45,7 +45,7 @@ const App = () => {
 
   const sortActive = tasks => {
     setTask([
-      ...tasks.map(task => task.complete === true ? { ...task, display: 'active' } : { ...task, display: '' }
+      ...tasks.map(task => task.complete ? { ...task, display: 'active' } : { ...task, display: '' }
       )])
   }
 
